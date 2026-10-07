@@ -1,0 +1,112 @@
+[
+  {
+    "thread_id": "recipes-demo",
+    "question": "¿Qué necesito para la receta más rápida con pollo?",
+    "steps": [
+      {
+        "type": "human",
+        "content": "¿Qué necesito para la receta más rápida con pollo?"
+      },
+      {
+        "type": "ai",
+        "content": "",
+        "tool_calls": [
+          {
+            "name": "search_recipes",
+            "args": {
+              "ingredient": "chicken"
+            }
+          }
+        ]
+      },
+      {
+        "type": "tool",
+        "content": "{\"recipes\": [{\"id\": 1, \"name\": \"Chicken stir-fry\", \"minutes\": 20}, {\"id\": 2, \"name\": \"Roast chicken with potatoes\", \"minutes\": 75}, {\"id\": 3, \"name\": \"Chicken milanesa\", \"minutes\": 35}]}",
+        "tool_name": "search_recipes"
+      },
+      {
+        "type": "ai",
+        "content": "",
+        "tool_calls": [
+          {
+            "name": "get_recipe_details",
+            "args": {
+              "recipe_id": 1
+            }
+          }
+        ]
+      },
+      {
+        "type": "tool",
+        "content": "{\"id\": 1, \"name\": \"Chicken stir-fry\", \"minutes\": 20, \"ingredients\": [\"chicken\", \"bell pepper\", \"onion\", \"soy sauce\", \"garlic\"], \"steps\": [\"Cut the chicken and vegetables into strips.\", \"Stir-fry the chicken over high heat for 6 minutes.\", \"Add the vegetables and garlic, cook 5 more minutes.\", \"Add the soy sauce and serve.\"]}",
+        "tool_name": "get_recipe_details"
+      },
+      {
+        "type": "ai",
+        "content": "La receta más rápida con pollo es \"Chicken stir-fry\", que toma 20 minutos. \n\n### Ingredientes:\n- Pollo\n- Pimiento\n- Cebolla\n- Salsa de soja\n- Ajo\n\n### Pasos:\n1. Corta el pollo y las verduras en tiras.\n2. Saltea el pollo a fuego alto durante 6 minutos.\n3. Agrega las verduras y el ajo, cocina 5 minutos más.\n4. Añade la salsa de soja y sirve."
+      }
+    ]
+  },
+  {
+    "thread_id": "recipes-demo",
+    "question": "¿Y la segunda más rápida?",
+    "steps": [
+      {
+        "type": "human",
+        "content": "¿Y la segunda más rápida?"
+      },
+      {
+        "type": "ai",
+        "content": "",
+        "tool_calls": [
+          {
+            "name": "get_recipe_details",
+            "args": {
+              "recipe_id": 3
+            }
+          }
+        ]
+      },
+      {
+        "type": "tool",
+        "content": "{\"id\": 3, \"name\": \"Chicken milanesa\", \"minutes\": 35, \"ingredients\": [\"chicken\", \"egg\", \"breadcrumbs\", \"garlic\", \"parsley\"], \"steps\": [\"Flatten the chicken breasts.\", \"Dip them in beaten egg with garlic and parsley.\", \"Coat them in breadcrumbs.\", \"Fry or bake until golden.\"]}",
+        "tool_name": "get_recipe_details"
+      },
+      {
+        "type": "ai",
+        "content": "La segunda receta más rápida con pollo es \"Chicken milanesa\", que toma 35 minutos.\n\n### Ingredientes:\n- Pollo\n- Huevo\n- Pan rallado\n- Ajo\n- Perejil\n\n### Pasos:\n1. Aplana las pechugas de pollo.\n2. Sumérgelas en huevo batido con ajo y perejil.\n3. Cúbrelas con pan rallado.\n4. Fríe o hornea hasta que estén doradas."
+      }
+    ]
+  },
+  {
+    "thread_id": "dragon-demo",
+    "question": "Quiero una receta con dragón",
+    "steps": [
+      {
+        "type": "human",
+        "content": "Quiero una receta con dragón"
+      },
+      {
+        "type": "ai",
+        "content": "",
+        "tool_calls": [
+          {
+            "name": "search_recipes",
+            "args": {
+              "ingredient": "dragon"
+            }
+          }
+        ]
+      },
+      {
+        "type": "tool",
+        "content": "{\"error\": \"No recipes found for ingredient 'dragon'.\"}",
+        "tool_name": "search_recipes"
+      },
+      {
+        "type": "ai",
+        "content": "No se encontraron recetas que incluyan \"dragón\". ¿Te gustaría buscar recetas con otro ingrediente?"
+      }
+    ]
+  }
+]
